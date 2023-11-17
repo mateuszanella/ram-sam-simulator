@@ -1,0 +1,8 @@
+Nomes: Felipe T. Malacarne e Mateus R. Zanella
+
+Instruções:
+
+1- Compilar o código do arquivo Main.c (se necessário).
+2- Rodar o arquivo executável.
+3- Selecionar o tamanho do arquivo desejado.
+4- Rodar!

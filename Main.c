@@ -142,6 +142,9 @@ char* get_random_word(FILE* fptr){
 
 int main(int argc, char** argv)
 {
+
+    //Nomes: Felipe T. Malacarne e Mateus R. Zanella
+
     char filename[50];
     int file;
     printf("1. 10 words\n");
