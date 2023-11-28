@@ -3,7 +3,7 @@ Trabalho final de Sistemas Digitais. O programa lê um arquivo de texto e busca 
 
 ## Instruções
 
-1- Compile o arquivo Main.c
-2- Rode o arquivo executável
-3- Digite o tamanho do arquivo desejado
-4- Rode o programa
+1. Compile o arquivo `Main.c`
+2. Rode o arquivo executável
+3. Digite o tamanho do arquivo desejado
+4. Rode o programa
