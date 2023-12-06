@@ -92,7 +92,7 @@ void execSAM(FILE *fptr, char *search_word)
 }
 
 void search_word_in_array(char words[ARRAY_SIZE][MAX_WORD_SIZE], int length, char* search_word){
-    int visited[250000] = {0};
+    int visited[300000] = {0};
 
     int count = 0;
     clock_t start, end;
@@ -152,6 +152,7 @@ int main(int argc, char** argv)
     printf("4. 500 words\n");
     printf("5. 100000 words\n");
     printf("6. 250000 words\n");
+    printf("7. 300000 words\n");
     printf("Enter the number of the file to open for reading: ");
     scanf("%d", &file);
 
@@ -180,6 +181,10 @@ int main(int argc, char** argv)
     case 6:
         strcpy(filename, "./files/250000p.txt");
         ARRAY_SIZE = 250000;
+        break;
+    case 7:
+        strcpy(filename, "./files/300000p.txt");
+        ARRAY_SIZE = 300000;
         break;
     default:
         printf("Invalid file number\n");
