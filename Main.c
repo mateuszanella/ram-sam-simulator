@@ -3,11 +3,13 @@
 #include <string.h>
 #include <time.h>
 
+#define MAX_WORD_SIZE 20
+
 int ARRAY_SIZE = 0;
 
 typedef struct node
 {
-    char data[15];
+    char data[MAX_WORD_SIZE];
     struct node *next;
 } node;
 
@@ -44,7 +46,7 @@ node *search_node(node *head, char *data)
 
 node *build_list(node *head, FILE *fptr)
 {
-    char word[15];
+    char word[MAX_WORD_SIZE];
     while (fscanf(fptr, "%s", word) != EOF)
     {
         head = insert_node(head, word);
@@ -89,8 +91,8 @@ void execSAM(FILE *fptr, char *search_word)
     printf("Time taken by SAM search: %f seconds\n", cpu_time_used);
 }
 
-void search_word_in_array(char words[ARRAY_SIZE][15], int length, char* search_word){
-    int visited[100000] = {0};
+void search_word_in_array(char words[ARRAY_SIZE][MAX_WORD_SIZE], int length, char* search_word){
+    int visited[250000] = {0};
 
     int count = 0;
     clock_t start, end;
@@ -118,7 +120,7 @@ void search_word_in_array(char words[ARRAY_SIZE][15], int length, char* search_w
 }
 
 void execRAM(FILE* fptr, char* search_word){
-    char words[ARRAY_SIZE][15];
+    char words[ARRAY_SIZE][MAX_WORD_SIZE];
     int i = 0;
     while (fscanf(fptr, "%s", words[i]) != EOF) i++;
 
@@ -126,7 +128,7 @@ void execRAM(FILE* fptr, char* search_word){
 }
 
 char* get_random_word(FILE* fptr){
-    char words[ARRAY_SIZE][15];
+    char words[ARRAY_SIZE][MAX_WORD_SIZE];
     int i = 0;
     while (fscanf(fptr, "%s", words[i]) != EOF) i++;
 
@@ -149,6 +151,7 @@ int main(int argc, char** argv)
     printf("3. 100 words\n");
     printf("4. 500 words\n");
     printf("5. 100000 words\n");
+    printf("6. 250000 words\n");
     printf("Enter the number of the file to open for reading: ");
     scanf("%d", &file);
 
@@ -173,6 +176,10 @@ int main(int argc, char** argv)
     case 5:
         strcpy(filename, "./files/100000p.txt");
         ARRAY_SIZE = 100000;
+        break;
+    case 6:
+        strcpy(filename, "./files/250000p.txt");
+        ARRAY_SIZE = 250000;
         break;
     default:
         printf("Invalid file number\n");
