@@ -90,8 +90,6 @@ void execSAM(FILE *fptr, char *search_word)
 }
 
 void search_word_in_array(char words[ARRAY_SIZE][15], int length, char* search_word){
-    srand(time(NULL));
-
     int visited[100000] = {0};
 
     int count = 0;
@@ -132,7 +130,6 @@ char* get_random_word(FILE* fptr){
     int i = 0;
     while (fscanf(fptr, "%s", words[i]) != EOF) i++;
 
-    srand(time(NULL)+1);
     int index = rand() % i;
     char* word = malloc(sizeof(char) * (strlen(words[index]) + 1));
     strcpy(word, words[index]);
@@ -189,6 +186,8 @@ int main(int argc, char** argv)
         printf("Cannot open file \n");
         return 0;
     }
+
+    srand(time(NULL));
 
     char* search_word = get_random_word(fptr);
     printf("Searching for word: %s\n", search_word);
